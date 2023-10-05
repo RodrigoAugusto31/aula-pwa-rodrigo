@@ -6,7 +6,7 @@ import { getTasks } from '../../utils/task';
 
 const Home = ({ setCurrentPath, loggoutRoutes, firebaseApp }) => {
     const navigate = useNavigate();
-    const [username, setUsername] = useState("Tiago")
+    const [username, setUsername] = useState("Rodrigo")
     const [tasks, setTasks] = useState([])
 
     const listTasks = async () => {

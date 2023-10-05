@@ -2,6 +2,7 @@ import { ButtonComponent, TextFieldComponent, BoxComponent, AuthTopComponent, St
 import { useEffect, useState } from "react"
 import { Link, useNavigate } from "react-router-dom";
 import { login, resendEmail, verifyLogin } from "../../utils/auth";
+import MeuIcone from '../../imagens/logo.png';
 import LoginIcon from '@mui/icons-material/Login';
 import { InputAdornment } from "@mui/material";
 import { AccountCircleOutlined, LockOutlined } from "@material-ui/icons";
@@ -15,7 +16,7 @@ const Login = ({ setCurrentPath, loggoutRoutes, firebaseApp }) => {
         verifyLogin(loggoutRoutes, window.location.pathname, navigate, firebaseApp)
     }, [])
 
-    const [email, setEmail] = useState("tiago");
+    const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
     async function entrarNoApp(){
@@ -27,93 +28,88 @@ const Login = ({ setCurrentPath, loggoutRoutes, firebaseApp }) => {
         await resendEmail(firebaseApp, {email, password}, setShowResendEmail);
     }
 
-    return <>
-            <AuthTopComponent title_page={'Bem-vindo'} subtitle_page={'Efetue login para entrar...'}/>
-            <BoxComponent
-                component="div"
-                sx={{ mt: 3, mb:3, pl: 4, pr: 4 }}
-                noValidate={true}
-                autoComplete={"off"}
+    return (
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            minHeight: '100vh', // Centraliza verticalmente na tela inteira
+            fontFamily: 'Roboto, sans-serif', // Define a fonte para todos os elementos
+          }}
+        >
+            <img src={MeuIcone} alt="logo" style={{ width: '64px', height: '64px', marginBottom: '20px' }} /> {/* Ícone no topo */}
+          <form
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              width: '100%',
+              maxWidth: '300px', // Largura máxima do conteúdo
+            }}
+          >
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
+            <label htmlFor="email" style={{ fontWeight: 'bold' }}>Login:</label>
+              <input
+                type="email"
+                name="email"
+                placeholder="Endereço de e-mail"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+                style={{ marginBottom: '10px' }} 
+              />
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
+            <label htmlFor="senha" style={{ fontWeight: 'bold' }}>Senha:</label>
+              <input
+                type="password"
+                name="senha"
+                placeholder="Senha"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+                style={{ marginBottom: '15px' }} 
+              />
+            </div>
+            <button
+              type="button"
+              onClick={entrarNoApp}
+              style={{
+                width: '60%', // Define a largura do botão igual à dos campos de entrada
+                marginTop: '10px',
+                backgroundColor: '#A020F0', // Cor roxa
+                color: '#fff',
+                border: 'none',
+                borderRadius: '25px', // Borda arredondada
+                padding: '10px',
+                cursor: 'pointer',
+                fontFamily: 'Roboto, sans-serif', // Define a fonte para todos os elementos
+              }}
             >
-                <TextFieldComponent 
-                    InputProps={{
-                        startAdornment: (
-                        <InputAdornment position="start">
-                            <AccountCircleOutlined style={{
-                                color: "#333"
-                            }}/>
-                        </InputAdornment>
-                        ),
-                    }}
-                    variant="filled" fullWidth={true} label="Email" value={email} type="email" onChange={(e) => setEmail(e.target.value)}/>
-            </BoxComponent>
-            <BoxComponent
-                component="div"
-                sx={{ mt: 3, mb:1, pl: 4, pr: 4 }}
-                noValidate={true}
-                autoComplete={"off"}
+              Entrar
+            </button>
+            <button
+                type="button"
+                onClick={() => navigate('/register')} // Redireciona para a página de registro
+                style={{
+                width: '60%', // Define a largura do botão igual à dos campos de entrada
+                marginTop: '10px',
+                backgroundColor: '#A020F0', // Cor roxa
+                color: '#fff',
+                border: 'none',
+                borderRadius: '25px', // Borda arredondada
+                padding: '10px',
+                cursor: 'pointer',
+                fontFamily: 'Roboto, sans-serif', // Define a fonte para todos os elementos
+             }}
             >
-                <TextFieldComponent 
-                    InputProps={{
-                        startAdornment: (
-                          <InputAdornment position="start">
-                            <LockOutlined style={{
-                                color: "#333"
-                            }}/>
-                          </InputAdornment>
-                        ),
-                      }}
-                    variant="filled" fullWidth={true} label="Password" value={password} type="password" onChange={(e) => setPassword(e.target.value)}/>
-            </BoxComponent> 
-            <BoxComponent
-                component="div"
-                sx={{ mt: 0, mb:0, pl: 4, pr: 4 }}
-                noValidate={true}
-                autoComplete={"off"}
-            >
-                <StackComponent sx={{mt: 0, mb: 0}} alignItems={'end'}>
-                    <Link style={{
-                        color: '#333',
-                        textDecoration: 'none',
-                        fontWeight: '200 !important',
-                        fontSize: 16
-                    }} to="/recovery-password">Esqueceu a senha?</Link>
-                </StackComponent>
-            </BoxComponent>
-            <BoxComponent
-                component="div"
-                sx={{ mt: 1, mb:3, pl: 4, pr: 4 }}
-                noValidate={true}
-                autoComplete={"off"}
-            > 
-                <ButtonComponent
-                    startIcon={<LoginIcon sx={{color: '#fff'}}/>}
-                    fullWidth={true} 
-                    label="Entrar" onClick={entrarNoApp}/>
-            </BoxComponent>
-            { showResendEmail ?
-                <BoxComponent
-                    component="div"
-                    sx={{ mt: 3, mb:3, pl: 4, pr: 4 }}
-                    noValidate={true}
-                    autoComplete={"off"}
-                > 
-                    <ButtonComponent
-                        startIcon={<LoginIcon sx={{color: '#fff'}}/>}
-                        fullWidth={true} 
-                        label="Reenviar e-mail" onClick={_resendEmail}/>
-                </BoxComponent> 
-            : null} 
-            
-            <StackComponent sx={{mt: 4, mb: 4}} alignItems={'center'}>
-                <Link style={{
-                    color: '#333',
-                    textDecoration: 'none',
-                    fontWeight: '200 !important',
-                    fontSize: 16
-                }} to="/register">Cadastrar-me</Link>
-            </StackComponent>
-    </>
+             Cadastrar
+            </button>
+          </form>
+        </div>
+      );
 }
 
 export default Login;
