@@ -151,7 +151,7 @@ const register = async (firebaseApp, data, navigate) => {
 
 const logout = async (firebaseApp, navigate) => {
     const dataModel = new DataModel(null, firebaseApp);
-    dataModel.clearDatabase(['user', 'task', 'category']);
+    dataModel.clearDatabase(['user']);
 
     navigate('/login');
 }
