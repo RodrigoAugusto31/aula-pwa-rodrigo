@@ -23,7 +23,7 @@ const Home = ({ setCurrentPath, loggoutRoutes, firebaseApp }) => {
         listTasks()
     }, [])
 
-    return (
+   return (
   <div
     style={{
       display: 'flex',
@@ -69,33 +69,25 @@ const Home = ({ setCurrentPath, loggoutRoutes, firebaseApp }) => {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        width: '100%',
+        width: '65%',
         maxWidth: '500px',
         marginBottom: '20px',
+        backgroundColor: '#BA55D3', // Cor de fundo roxo escuro
+        padding: '0px', // Espaçamento interno
+        borderRadius: '15px', // Borda arredondada
       }}
     >
-      <div
-        style={{
-          backgroundColor: '#A020F0',
-          color: '#fff', // Alterado para branco
-          borderRadius: '15px', // Borda arredondada
-          padding: '5px',
-          marginBottom: '20px',
-          width: '50%',
-          textAlign: 'center', // Alinhar o texto ao centro
-        }}
-      >
-        <h3 style={{ fontWeight: 'bold', color: '#fff' }}>Cozinheiro M/F</h3>
-        <p style={{ color: '#fff' }}>1 salário mínimo</p>
-        <p style={{ color: '#fff' }}>(11) 9943-2342</p>
-      </div>
+      <h3 style={{ fontWeight: 'bold', color: '#fff' }}>Cozinheiro M/F</h3>
+      <p style={{ color: '#fff', margin: '5px 0' }}>1 salário mínimo</p>
+      <p style={{ color: '#fff', margin: '5px 0' }}>(11) 9943-2342</p>
       <button
         type="button"
         style={{
-          backgroundColor: '#A020F0',
+          backgroundColor: '#4B0082',
           color: '#fff',
           border: 'none',
-          borderRadius: '25px',
+          borderRadius: '0px',
+          width: '100%',
           padding: '10px',
           cursor: 'pointer',
           fontFamily: 'Roboto, sans-serif',
@@ -109,36 +101,92 @@ const Home = ({ setCurrentPath, loggoutRoutes, firebaseApp }) => {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        width: '100%',
+        width: '65%',
         maxWidth: '500px',
         marginBottom: '20px',
+        backgroundColor: '#BA55D3', // Cor de fundo roxo escuro
+        padding: '0px', // Espaçamento interno
+        borderRadius: '15px', // Borda arredondada
       }}
     >
-      <div
-        style={{
-          backgroundColor: '#A020F0',
-          color: '#A020F0', // Alterado para branco
-          borderRadius: '15px', // Borda arredondada
-          padding: '5px',
-          marginBottom: '20px',
-          width: '50%',
-          textAlign: 'center', // Alinhar o texto ao centro
+      <h3 style={{ fontWeight: 'bold', color: '#fff' }}>Pedreiro M/F</h3>
+      <p style={{ color: '#fff', margin: '5px 0' }}>1 salário mínimo</p>
+      <p style={{ color: '#fff', margin: '5px 0' }}>(15) 9983-3052</p>
+      <button
+       type="button"
+       style={{
+         backgroundColor: '#4B0082',
+         color: '#fff',
+         border: 'none',
+         borderRadius: '0px',
+         width: '100%',
+         padding: '10px',
+         cursor: 'pointer',
+         fontFamily: 'Roboto, sans-serif',
         }}
       >
-        <h3 style={{ fontWeight: 'bold', color: '#fff' }}>Motorista M/F</h3>
-        <p style={{ color: '#fff' }}>1 salário mínimo</p>
-        <p style={{ color: '#fff' }}>(11) 9943-2342</p>
-      </div>
+        Visualizar detalhes
+      </button>
+    </div>
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        width: '65%',
+        maxWidth: '500px',
+        marginBottom: '20px',
+        backgroundColor: '#BA55D3', // Cor de fundo roxo escuro
+        padding: '0px', // Espaçamento interno
+        borderRadius: '15px', // Borda arredondada
+      }}
+    >
+      <h3 style={{ fontWeight: 'bold', color: '#fff' }}>Recepcionista M/F</h3>
+      <p style={{ color: '#fff', margin: '5px 0' }}>1 salário mínimo</p>
+      <p style={{ color: '#fff', margin: '5px 0' }}>(14) 9813-0340</p>
       <button
-        type="button"
-        style={{
-          backgroundColor: '#A020F0',
-          color: '#fff',
-          border: 'none',
-          borderRadius: '25px',
-          padding: '10px',
-          cursor: 'pointer',
-          fontFamily: 'Roboto, sans-serif',
+       type="button"
+       style={{
+         backgroundColor: '#4B0082',
+         color: '#fff',
+         border: 'none',
+         borderRadius: '0px',
+         width: '100%',
+         padding: '10px',
+         cursor: 'pointer',
+         fontFamily: 'Roboto, sans-serif',
+        }}
+      >
+        Visualizar detalhes
+      </button>
+    </div>
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        width: '65%',
+        maxWidth: '500px',
+        marginBottom: '20px',
+        backgroundColor: '#BA55D3', // Cor de fundo roxo escuro
+        padding: '0px', // Espaçamento interno
+        borderRadius: '15px', // Borda arredondada
+      }}
+    >
+      <h3 style={{ fontWeight: 'bold', color: '#fff' }}>Motorista M/F</h3>
+      <p style={{ color: '#fff', margin: '5px 0' }}>1 salário mínimo</p>
+      <p style={{ color: '#fff', margin: '5px 0' }}>(19) 9953-7382</p>
+      <button
+       type="button"
+       style={{
+         backgroundColor: '#4B0082',
+         color: '#fff',
+         border: 'none',
+         borderRadius: '0px',
+         width: '100%',
+         padding: '10px',
+         cursor: 'pointer',
+         fontFamily: 'Roboto, sans-serif',
         }}
       >
         Visualizar detalhes
