@@ -1,10 +1,6 @@
-import { ButtonComponent, TextFieldComponent, BoxComponent, AuthTopComponent, StackComponent } from "../../components"
 import { useEffect, useState } from "react"
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { register, verifyLogin } from "../../utils/auth";
-import LoginIcon from '@mui/icons-material/Login';
-import { InputAdornment } from "@mui/material";
-import { AccountCircleOutlined, LockOutlined } from "@material-ui/icons";
 
 const Register = ({ setCurrentPath, loggoutRoutes, firebaseApp }) => {
     const navigate = useNavigate();

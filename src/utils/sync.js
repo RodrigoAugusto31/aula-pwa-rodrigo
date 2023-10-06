@@ -1,6 +1,5 @@
 import { DataModel } from "../data/datamodel";
 import { _updateProfile } from "./auth";
-import { saveTask } from "./task";
 
 const sync = async (firebaseApp) => {
     if(window.navigator.onLine){
@@ -23,19 +22,6 @@ const sincronizarDados = async (firebaseApp) => {
             birthday: user[0].birthday, 
             role: user[0].role
         })
-    }
-    if(tasks.length > 0){
-        for(let task of tasks){
-            const data = {
-                id: task.id,
-                title: task.title, 
-                day: task.day, 
-                hour: task.hour, 
-                category: task.category, 
-                description: task.description
-            }
-            saveTask(firebaseApp, data);
-        }
     }
 }
 

@@ -1,26 +1,15 @@
-import { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-//import { verifyLogin } from '../../utils/auth';
-import { TopComponent } from '../../components';
-import { getTasks } from '../../utils/task';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 import { logout, verifyLogin } from "../../utils/auth";
 
 const Home = ({ setCurrentPath, loggoutRoutes, firebaseApp }) => {
     const navigate = useNavigate();
-    const [username, setUsername] = useState("Rodrigo")
-    const [tasks, setTasks] = useState([])
-
-    const listTasks = async () => {
-        const response = await getTasks(firebaseApp);
-        setTasks(response)
-    }
-
+    
     useEffect(() => {
         setCurrentPath(window.location.pathname)
         verifyLogin(loggoutRoutes, window.location.pathname, navigate, firebaseApp)
-        listTasks()
     }, [])
 
    return (
